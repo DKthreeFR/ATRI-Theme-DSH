@@ -29,14 +29,16 @@ atri-plugin/
 
 ---
 
-## 第一步（两种方式通用）：把插件放进 profile
+# 安装方式
 
-1. 把 `@deepseek-ai/dsh-client-ui-atri` 整个目录复制到你的 profile：
+## 第一步（两种方式通用）：拉去项目 把插件放进 profile
+
+1. 把 `dsh-client-ui-atri` 整个目录复制到你的 profile：
 
    - Windows：`C:\Users\<你>\.dsh\profiles\web\node_modules\@deepseek-ai\dsh-client-ui-atri\`
    - Linux / macOS：`~/.dsh/profiles/web/node_modules/@deepseek-ai/dsh-client-ui-atri/`
 
-2. 在 profile 的 `cordis.patch.yml`（和上面 `web` 同级，即 `~/.dsh/profiles/web/cordis.patch.yml`）里注册：
+2. 在 web 的 `cordis.patch.yml`（和上面 `web` 同级，即 `~/.dsh/profiles/web/cordis.patch.yml`）里注册：
 
    ```yaml
    - insert:
@@ -46,13 +48,13 @@ atri-plugin/
 
 > 做完这一步，**纯视觉主题（壁纸、配色、品牌区、图标、文案替换、链接/轨迹/思考颜色等）就已经生效了**。下面的第二步只是为了让「UI 界面设置」页和「侧栏加宽」可用。
 
----
-
-## 第二步：启用「UI 界面设置」+「侧栏加宽 15px」
+##第二步：启用「UI 界面设置」+「侧栏加宽 15px」
 
 ### 方式 A：源码运行（`pnpm dsh web`，你有 checkout）
 
-在你的 checkout 根目录执行：
+在你的 checkout 根目录就是（**ATRI-Theme-DSH**下）执行：
+
+侧边栏加宽主要是为了展开显示完全
 
 ```bash
 git apply /path/to/atri-plugin/patches/core.patch
