@@ -1,0 +1,26 @@
+diff --git a/packages/client/ui-layout/src/client/columns.ts b/packages/client/ui-layout/src/client/columns.ts
+index 374ce64703..6757b481d1 100644
+--- a/packages/client/ui-layout/src/client/columns.ts
++++ b/packages/client/ui-layout/src/client/columns.ts
+@@ -24,7 +24,7 @@ export const SIDEBAR_MIN = 264
+ /** Sidebar drag clamp ceiling. */
+ export const SIDEBAR_MAX = 420
+ /** Sidebar width before any user drag. */
+-export const SIDEBAR_DEFAULT = 280
++export const SIDEBAR_DEFAULT = 295
+ /** Closed-sidebar rail: a 24px icon column between 16px horizontal paddings. */
+ export const SIDEBAR_COLLAPSED = 56
+ /** Viewport width below which the sidebar auto-collapses to the rail (deepsuite
+diff --git a/packages/host/apiproxy/src/api-proxy.ts b/packages/host/apiproxy/src/api-proxy.ts
+index bda99362b6..3554a0e1e7 100644
+--- a/packages/host/apiproxy/src/api-proxy.ts
++++ b/packages/host/apiproxy/src/api-proxy.ts
+@@ -124,7 +124,7 @@ const DEFAULT_MAX_MESSAGES = 50
+  * is deferred work.
+  */
+ const WEB_SETTINGS_NAMESPACES = [
+-  'agent-loop', 'shell', 'locale', 'permission', 'ui-conversation', 'ui-theme', 'web-search-deepseek',
++  'agent-loop', 'shell', 'locale', 'permission', 'ui-conversation', 'ui-theme', 'web-search-deepseek', 'atri-ui',
+ ] as const
+ 
+ /** Provider work budget: at most 100 calls and 2,000 inspected hits. */

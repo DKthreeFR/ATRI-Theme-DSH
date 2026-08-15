@@ -1,0 +1,18 @@
+{
+  "name": "@deepseek-ai/dsh-client-ui-atri",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ATRI -My Dear Moments- panel theme: warm seaside amber palette, full-screen ATRI background, and a 高性能です！ sidebar tag.",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  }
+}
