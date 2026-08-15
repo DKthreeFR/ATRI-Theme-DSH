@@ -31,7 +31,7 @@ atri-plugin/
 
 # 安装方式
 
-## 第一步（两种方式通用）：拉去项目 把插件放进 profile
+## 第一步（两种方式通用）：拉取项目 把插件放进 profile
 
 1. 把 `dsh-client-ui-atri` 整个目录复制到你的 profile：
 
