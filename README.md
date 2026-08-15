@@ -40,6 +40,8 @@ atri-plugin/
 
 2. 在 web 的 `cordis.patch.yml`（和上面 `web` 同级，即 `~/.dsh/profiles/web/cordis.patch.yml`）里注册：
 
+   这一步将会实现一启动就加载主题
+
    ```yaml
    - insert:
        - id: ui-atri
@@ -78,5 +80,27 @@ node /path/to/atri-plugin/setup-npx.mjs "<node_modules 根目录>"
 然后重启 `dsh web`，浏览器 `Ctrl+Shift+R` 强制刷新。
 
 > 注意：npm/npx 安装版的补丁是改在已安装的包里的，**重新安装 / 升级 dsh 后会失效**，需要重新跑一次脚本。源码版用 `git apply` 则会一直留在你的改动里。
+
+---
+
+## 如何卸载  （只卸载插件可能导致Failed.Loader)
+
+> ⚠️ **不要只删插件目录。** DSH 启动时会解析 `cordis.patch.yml` 里注册的每个插件，目录删了但注册还在 → 直接 **Failed Loader** 进不去。
+
+正确顺序（两步一起）：
+
+1. 打开 `~/.dsh/profiles/web/cordis.patch.yml`，删掉 `ui-atri` 这一条注册：
+
+   ```yaml
+   - insert:
+       - id: ui-atri
+         name: '@deepseek-ai/dsh-client-ui-atri'   # ← 删掉这 3 行
+   ```
+
+2. （可选）再删插件目录 `~/.dsh/profiles/web/node_modules/@deepseek-ai/dsh-client-ui-atri/`。
+
+> - 只删 yaml 条目、留着目录 = **安全**（没被注册的目录不会被加载）；
+> - 只删目录、留着 yaml 条目 = **Failed Loader**；
+> - 注意 `disabled: true` 也只是「不激活」，加载器仍要解析该包，所以 `disabled: true` 的插件目录同样不能乱删。
 
 - ​
