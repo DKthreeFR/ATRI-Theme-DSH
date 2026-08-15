@@ -33,7 +33,7 @@ atri-plugin/
 
 ## 展示效果
 
-![ATRI 主题效果 1](assets/1786826579712.jpg)
+![ATRI 主题效果 1](assets/1786827538944.png)
 
 ![ATRI 主题效果 2](assets/1786826607202.jpg)
 
