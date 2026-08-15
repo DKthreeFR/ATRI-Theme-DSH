@@ -17,19 +17,23 @@
 
 ```
 atri-plugin/
-├── package.json
-├── README.md            ← 本文件
-├── setup-npx.mjs        ← npm/npx 安装版用的一键补丁脚本
-├── lib/
-│   ├── client.js        ← 全部视觉主题 + 设置页逻辑
-│   └── index.js         ← node 半（注册 atri-ui 设置命名空间）
-└── patches/
-    └── core.patch       ← 源码版用的核心补丁
+├── LICENSE              ← 许可证
+├── README.md            ← 本文件（安装说明）
+└── dsh-client-ui-atri/  ← 插件本体（要复制的就是它）
+    ├── package.json
+    ├── setup-npx.mjs    ← npm/npx 安装版用的一键补丁脚本
+    ├── lib/
+    │   ├── client.js    ← 全部视觉主题 + 设置页逻辑
+    │   └── index.js     ← node 半（注册 atri-ui 设置命名空间）
+    └── patches/
+        └── core.patch   ← 源码版用的核心补丁
 ```
 
 ---
 
 # 安装方式
+
+我觉得直接把仓库丢给Harneess让他帮你装也可以
 
 ## 第一步（两种方式通用）：拉取项目 把插件放进 profile
 
@@ -50,7 +54,7 @@ atri-plugin/
 
 > 做完这一步，**纯视觉主题（壁纸、配色、品牌区、图标、文案替换、链接/轨迹/思考颜色等）就已经生效了**。下面的第二步只是为了让「UI 界面设置」页和「侧栏加宽」可用。
 
-##第二步：启用「UI 界面设置」+「侧栏加宽 15px」
+## 第二步：启用「UI 界面设置」+「侧栏加宽 15px」
 
 ### 方式 A：源码运行（`pnpm dsh web`，你有 checkout）
 
@@ -59,7 +63,7 @@ atri-plugin/
 侧边栏加宽主要是为了展开显示完全
 
 ```bash
-git apply /path/to/atri-plugin/patches/core.patch
+git apply /path/to/atri-plugin/dsh-client-ui-atri/patches/core.patch
 pnpm build:lib:host     # 让 atri-ui 设置命名空间生效
 pnpm build:lib:client   # 让侧栏加宽 15px 生效
 pnpm dsh web            # 重启
@@ -68,13 +72,13 @@ pnpm dsh web            # 重启
 ### 方式 B：npm / npx 安装运行（`npx @deepseek-ai/dsh web` 或 `dsh web`）
 
 ```bash
-node /path/to/atri-plugin/setup-npx.mjs
+node /path/to/atri-plugin/dsh-client-ui-atri/setup-npx.mjs
 ```
 
 脚本会自动在「全局 npm 目录」和「npx 缓存目录」里找到 `dsh-host-apiproxy` 和 `dsh-client-ui-layout` 并修改。如果找不到，手动指定 node_modules 根目录：
 
 ```bash
-node /path/to/atri-plugin/setup-npx.mjs "<node_modules 根目录>"
+node /path/to/atri-plugin/dsh-client-ui-atri/setup-npx.mjs "<node_modules 根目录>"
 ```
 
 然后重启 `dsh web`，浏览器 `Ctrl+Shift+R` 强制刷新。
@@ -103,4 +107,13 @@ node /path/to/atri-plugin/setup-npx.mjs "<node_modules 根目录>"
 > - 只删目录、留着 yaml 条目 = **Failed Loader**；
 > - 注意 `disabled: true` 也只是「不激活」，加载器仍要解析该包，所以 `disabled: true` 的插件目录同样不能乱删。
 
-- ​
+## 如果安装不成功或者有问题 把仓库直接丢给你的Harness吧
+
+直接丢给Harness让他帮你装应该没问题
+
+因为我没测试过上面的方式能不能成功安装，试了一下应该没问题的
+
+
+
+
+
