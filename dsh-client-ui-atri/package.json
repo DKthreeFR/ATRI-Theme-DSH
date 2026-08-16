@@ -1,14 +1,46 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-atri",
+  "name": "@dkthree/dsh-client-ui-atri",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
-  "description": "ATRI -My Dear Moments- panel theme: warm seaside amber palette, full-screen ATRI background, and a 高性能です！ sidebar tag.",
+  "description": "《ATRI -My Dear Moments-》 theme for the DeepSeek Harness web GUI — warm seaside amber palette, full-screen ATRI background, and a 高性能です！ sidebar tag.",
   "main": "lib/index.js",
+  "bin": {
+    "atri": "bin/atri.mjs"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "patches",
+    "setup-npx.mjs",
+    "README.md",
+    "LICENSE"
+  ],
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
     "./package.json": "./package.json"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "theme",
+    "atri",
+    "atari",
+    "anime"
+  ],
+  "author": "DKthreeFR",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DKthreeFR/ATRI-Theme-DSH.git"
+  },
+  "homepage": "https://github.com/DKthreeFR/ATRI-Theme-DSH",
+  "bugs": {
+    "url": "https://github.com/DKthreeFR/ATRI-Theme-DSH/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dsh": {
     "client": {
